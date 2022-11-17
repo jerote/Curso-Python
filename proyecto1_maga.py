@@ -1,14 +1,16 @@
 import pyperclip
 import pyshorteners
 import webbrowser
-from tkinter import *
+from tkinter import * 
 
-ventana = Tk()
+ventana = Tk() 
 ventana.minsize(400, 200)
-ventana.title('URL shortener')
+ventana.title("Acortador de enlaces")
 ventana.resizable(0, 0)
 
-corte = pyshorteners.Shortener() # acortar lo que ingresamos
+
+corte = pyshorteners.Shortener()  # acortar lo que ingresemos 
+
 
 def acortamiento():
     acortado = corte.tinyurl.short(acortar_entry.get())
@@ -18,7 +20,7 @@ def acortamiento():
         fg="black",
         bg="#FF5733",
         font=("Arial", 20),
-        padx=218,
+        padx=210, 
         pady=20
     )
 
@@ -27,23 +29,25 @@ def acortamiento():
     boton_copiar = Button(ventana, text="Copiar enlace", command=copiar_enlace)
     boton_copiar.grid(row=10, column=0)
 
+
 def abrir_enlace():
     webbrowser.open(corte.tinyurl.short(acortar_entry.get()))
-    
+
+
 def copiar_enlace():
     pyperclip.copy(corte.tinyurl.short(acortar_entry.get()))
-    
-etiqueta_home = Label(ventana, text='Acortador de enlaces')
+
+
+etiqueta_home = Label(ventana, text="Acortador de enlaces")
 etiqueta_home.config(
     fg="white",
     bg="#8000ff",
-    font=('Arial', 20),
-    padx=218,
+    font=("Arial", 20),
+    padx=210,
     pady=20
 )
-
 etiqueta_home.grid(row=0, column=0)
-    
+
 acortar_entry = Entry(ventana)
 acortar_entry.grid(row=2, column=0)
 
@@ -56,4 +60,11 @@ boton.grid(row=5, column=0)
 
 
 
-ventana.mainloop() # todo lo que sucede en la ventana debe estar arriba de este mainloop() !!
+
+
+ventana.mainloop()
+
+
+
+
+
